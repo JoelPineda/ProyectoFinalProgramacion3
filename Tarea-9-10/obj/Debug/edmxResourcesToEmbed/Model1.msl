@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Datos_FeligrenseModelStoreContainer" CdmEntityContainer="FeligrenseDBContext">
+    <EntitySetMapping Name="DATOS">
+      <EntityTypeMapping TypeName="Datos_FeligrenseModel.DATOS">
+        <MappingFragment StoreEntitySet="DATOS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Pais_Residencia_Actual" ColumnName="Pais_Residencia_Actual" />
+          <ScalarProperty Name="Ciudad_Residencia_Actual" ColumnName="Ciudad_Residencia_Actual" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Correo_electronico" ColumnName="Correo_electronico" />
+          <ScalarProperty Name="Tipo_documento" ColumnName="Tipo_documento" />
+          <ScalarProperty Name="Documento_identidad" ColumnName="Documento_identidad" />
+          <ScalarProperty Name="Estado_Civil" ColumnName="Estado_Civil" />
+          <ScalarProperty Name="Nombre_Pareja" ColumnName="Nombre_Pareja" />
+          <ScalarProperty Name="Hijos" ColumnName="Hijos" />
+          <ScalarProperty Name="N_Hijos" ColumnName="N_Hijos" />
+          <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+          <ScalarProperty Name="Ocupacion_Actual" ColumnName="Ocupacion_Actual" />
+          <ScalarProperty Name="Nombre_Empresa" ColumnName="Nombre_Empresa" />
+          <ScalarProperty Name="Telefono_Empresa" ColumnName="Telefono_Empresa" />
+          <ScalarProperty Name="Fecha_Conversion" ColumnName="Fecha_Conversion" />
+          <ScalarProperty Name="Fecha_Bautismo" ColumnName="Fecha_Bautismo" />
+          <ScalarProperty Name="Fecha_Aceptado" ColumnName="Fecha_Aceptado" />
+          <ScalarProperty Name="Denominacion_Pertenece" ColumnName="Denominacion_Pertenece" />
+          <ScalarProperty Name="Otra_denominacion" ColumnName="Otra_denominacion" />
+          <ScalarProperty Name="Nombre_Iglesia" ColumnName="Nombre_Iglesia" />
+          <ScalarProperty Name="Congregacion_Anterior" ColumnName="Congregacion_Anterior" />
+          <ScalarProperty Name="Nombre_Pastor" ColumnName="Nombre_Pastor" />
+          <ScalarProperty Name="Diciplinado_algunaVez" ColumnName="Diciplinado_algunaVez" />
+          <ScalarProperty Name="N_veces" ColumnName="N_veces" />
+          <ScalarProperty Name="Causas" ColumnName="Causas" />
+          <ScalarProperty Name="Ocupacion_en_la_iglesia" ColumnName="Ocupacion_en_la_iglesia" />
+          <ScalarProperty Name="Ministerio_Servido" ColumnName="Ministerio_Servido" />
+          <ScalarProperty Name="Ministerio_Fruto" ColumnName="Ministerio_Fruto" />
+          <ScalarProperty Name="Ministerio_Dios" ColumnName="Ministerio_Dios" />
+          <ScalarProperty Name="Meta_vida" ColumnName="Meta_vida" />
+          <ScalarProperty Name="Eclesiastico_estudio" ColumnName="Eclesiastico_estudio" />
+          <ScalarProperty Name="Nivel_estudio" ColumnName="Nivel_estudio" />
+          <ScalarProperty Name="Expulsado_Ins" ColumnName="Expulsado_Ins" />
+          <ScalarProperty Name="Razon" ColumnName="Razon" />
+          <ScalarProperty Name="DBHABILITADO" ColumnName="DBHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paises">
+      <EntityTypeMapping TypeName="Datos_FeligrenseModel.Paises">
+        <MappingFragment StoreEntitySet="Paises">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

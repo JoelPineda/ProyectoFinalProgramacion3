@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="FeligrenseDbContext-Web.config Connection String" description="FeligrenseDbContext Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="workstation id=Iglesia.mssql.somee.com;packet size=4096;user id=joelpb_SQLLogin_1;pwd=aviekhd312;data source=Iglesia.mssql.somee.com;persist security info=False;initial catalog=Iglesia" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\brito\\Desktop\\Tarea-9-10\\Tarea-9-10\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='FeligrenseDbContext']/@connectionString" />
+  </parameter>
+</parameters>

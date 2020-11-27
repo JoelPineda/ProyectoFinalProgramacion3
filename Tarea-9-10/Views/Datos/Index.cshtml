@@ -1,0 +1,359 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .btn-group, .btn-group-vertical {
+        position: absolute !important;
+    }
+</style>
+<h2 id="color">Registro de datos</h2>
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/CssValidacion.css" rel="stylesheet" />
+<link href="~/DataTable/datatables.min.css" rel="stylesheet" />
+<link href="~/DataTable/DataTables-1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<div class="form-group">
+    <label for="txtBuscar">Buscar</label>
+    <input type="text" id="txtBuscar" class="form-control" />
+</div>
+<div>
+    <p align="right">
+        <button type="button" onclick="abrirModal(0)" class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal" id="popup"><i class="glyphicon glyphicon-plus"></i></button>
+    </p>
+</div>
+
+<br />
+<h3>Lista de feligrenses</h3>
+<div id="secretos">
+
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <label>Solicitud</label>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                @*Formulario para datos Personales*@
+                <div id="personal">
+                    <h3>Datos Personales</h3>
+                    <form id="formularioS" name="formularioS">
+                        <div class="form-group">
+                            <label for="txtId">Id Feligrense</label>
+                            <input type="number" class="form-control borrar" id="txtId" placeholder="Ingrese Id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNombre">Nombre</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtNombre" placeholder="Ingrese su nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtApellido">Apellido</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtApellido" placeholder="Ingrese su apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtAutoridades">Sexo</label>
+                            <br />
+                            <label><input type="checkbox"  id="txtSexo" name="sexoM" class="masculinoS" value="Masculino" onclick='validarSexo(formularioS.sexoM, 1)'>Masculino</label>
+                            <label><input type="checkbox" id="txtSexo" name="sexoF" value="Femenino" onclick="validarSexo(formularioS.sexoF, 1)">Femenino</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="imgFoto">Foto en jpg</label>
+                            <br />
+                            <img id="imgFoto" width="150" , height="100" style="border:1px" />
+                            <br />
+                            <input type="file" value="..." id="btnFoto" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtFecha">Fecha</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtFecha" placeholder="Ingrese su fecha de nacimiento">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPaisN">Pais de nacimiento</label>
+                            <select id="txtPaisN" class="form-control borrar">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCiudadN">Ciudad de nacimiento</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtCiudadN" placeholder="Ingrese su ciudad de nacimiento">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPaisA">Pais de residencia Actual</label>
+                            <select id="txtPaisA" class="form-control borrar">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCiudadA">Ciudad de residencia actual</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtCiudadA" placeholder="Ingrese su ciudad de residencia actual">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtDireccion">Direccion</label>
+                            <textarea class="form-control borrar" id="txtDireccion" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtTelefonoP">Telefono</label>
+                            <input type="number" class="form-control borrar obligatorio" id="txtTelefonoP" placeholder="Ingrese su telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCelularC">Celular</label>
+                            <input type="number" class="form-control borrar" id="txtCelularC" placeholder="Ingrese su celular">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCorreo">Correo electronico</label>
+                            <input type="email" class="form-control borrar" id="txtCorreo">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtDocumentoI">Tipo de documento de identidad</label>
+                            <br />
+                            <label><input type="checkbox" id="cedula" name="cedulas" value="cedula" onclick="validarDocumento(formularioS.cedulas, 1);showContent3()" class="tipoD">Cedula</label>
+                            <label><input type="checkbox" id="pasaporte" name="pasaportes" value="Pasaporte" onclick="validarDocumento(formularioS.pasaportes, 1);showContent3()" class="tipoD">Pasaporte</label>
+                            <label><input type="checkbox" id="dni" name="dnis" onclick="validarDocumento(formularioS.dnis, 1);showContent3()" value="DNI" class="tipoD">DNI</label>
+                        </div>
+                        <div class="form-group" style="display:none;" id="documento">
+                            <label for="razon">Documento de identidad</label>
+                            <input type="number" class="form-control borrar obligatorio" id="documentoI" placeholder="Ingrese su documento de identidad">
+                        </div>
+                        <div class="form-group" style="display:none;">
+                            <select class="form-control" id="txtUsuario">
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                @*Formulario para datos familiares*@
+                <div id="empresa">
+                    <h3>Datos Familiares</h3>
+                    <form id="formulario2" name="formulario2">
+                        <div class="form-group">
+                            <label for="txtEmpresa">Estado Civil</label>
+                            <br />
+                            <label><input type="checkbox" id="casado" class="EstadoCivil" name="cados" value="Casado(a)" onclick="validarEstadoCivil(formulario2.cados, 1);showContent4()">Casado(a)</label>
+                            <label><input type="checkbox" id="soltero" class="EstadoCivil" name="solteros" value="Soltero(a)" onclick="validarEstadoCivil(formulario2.solteros, 1)">Soltero(a)</label>
+                        </div>
+                        <div class="form-group" style="display:none;" id="documentopare">
+                            <label for="nombrepa">Nombre de esposo(a)</label>
+                            <input type="text" class="form-control borrar" id="nombrepa" placeholder="Ingrese el nombre de su esposo(a)">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmpresa">Hijos</label>
+                            <br />
+                            <label><input type="checkbox" class="hijos" id="si" name="hijossi" value="Si" onclick="validarHijo(formulario2.hijossi, 1);showContent()">Si</label>
+                            <label><input type="checkbox" class="hijos" id="hijos2" name="hijosno" value="No" onclick="validarHijo(formulario2.hijosno, 1)">No</label>
+                        </div>
+                        <div class="form-group" style="display:none;" id="txtHijo">
+                            <label for="txtHijos">Numero de hijos</label>
+                            <input type="number" class="form-control borrar" id="txtHijos" placeholder="Ingrese el numero de hijos">
+                        </div>
+                    </form>
+
+                    @*Formulario para datos laborales*@
+                    <h3>Datos Laborales</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="txtProfesion">Profesion</label>
+                            <input type="text" class="form-control borrar" id="Profesion" placeholder="Ingrese su profesion">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtOActual">Ocupacion Actual</label>
+                            <input type="text" class="form-control borrar" id="txtOActual" placeholder="Ingrese su ocupacion actual">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmpresa">Empresa</label>
+                            <input type="text" class="form-control borrar" id="txtEmpresa" placeholder="Ingrese el nombre de la empresa donde trabaja">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtTelefonoT">Telefono</label>
+                            <input type="number" class="form-control borrar" id="txtTelefonoT" placeholder="Ingrese un numero de telefono">
+                        </div>
+                    </form>
+                </div>
+
+
+                @*Formulario para datos eclesiasticos*@
+                <div id="empresa2">
+                    <h3>Datos Eclesiasticos</h3>
+                    <form id="formulario" name="formulario">
+                        <div class="form-group">
+                            <label for="txtFechaCon">Fecha de conversion</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtFechaCon">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtFechabau">Fecha de bautismo</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtFechabau">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtFechaAceptado">Fecha en la que fue aceptado(a) como miembro de la iglesia</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtFechaAceptado">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmpresa">Denominación a la que pertenece</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Bautista" name="Bautista" onclick='validar(formulario.Bautista,1)'>Bautista</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Pentecostal" name="Pentecostal" onclick='validar(formulario.Pentecostal,1)'>Pentecostal</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Metodista" name="Metodista" onclick='validar(formulario.Metodista,1)'>Metodista</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Católica" name="Católica" onclick='validar(formulario.Católica,1)'>Católica</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Presbiteriana" name="Presbiteriana" onclick='validar(formulario.Presbiteriana,1)'>Presbiteriana</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Adventista" name="Adventista" onclick='validar(formulario.Adventista,1)'>Adventista</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Templo_Biblico" name="Templo_Biblico" onclick='validar(formulario.Templo_Biblico,1)'>Templo_Biblico</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Menonita" name="Menonita" onclick='validar(formulario.Menonita,1)'>Menonita</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" value="Luterana" name="Luterana" onclick='validar(formulario.Luterana,1)'>Luterana</label>
+                            <br />
+                            <label><input type="checkbox" class="DenominacionP" id="DenominacionP" value="Otra" name="Otra" onclick='validar(formulario.Otra, 1);showContent6()'>Otra</label>
+                        </div>
+                        <div class="form-group" style="display:none" id="OtraIglesia">
+                            <label for="txtOtra">Otra</label>
+                            <input type="text" class="form-control borrar" id="txtOtra" placeholder="Ingrese denominacion a la que pertenece">
+                        </div>
+                        <div class="form-group" id="txtnameIglesia">
+                            <label for="txtNombreIglesia">Nombre de la iglesia</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtNombreIglesia" placeholder="Ingrese el nombre de la iglesia">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCongrebaAn">Si asiste a esta iglesia por un tiempo menor a un año, ¿dónde se congregaba antes?</label>
+                            <input type="text" class="form-control borrar" id="txtCongrebaAn">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNpastorActu">Nombre del pastor de su iglesia actual</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtNpastorActu">
+                        </div>
+                    </form>
+                </div>
+
+                <div id="eclesiasticos2">
+                    <h3>Datos Eclesiasticos</h3>
+                    <form id="formulario3" name="formulario3">
+                        <div class="form-group">
+                            <label for="txtEmpresa">¿Ha sido disciplinado alguna vez?</label>
+                            <br />
+                            <label><input type="checkbox" class="displinado" id="NoD" name="No" value="No" onclick='validar4(formulario3.No, 1)'>No</label>
+                            <label><input type="checkbox" class="displinado" id="SiD" name="Si" value="Si" onclick="validar4(formulario3.Si, 1);showContent5()">Si</label>
+                        </div>
+                        <div class="form-group" style="display:none;" id="checklistDicipli">
+                            <label for="txtDisciplinado">Numero de veces disciplinado</label>
+                            <input type="number" class="form-control borrar" id="txtDisciplinado">
+                        </div>
+                        <div class="form-group" style="display:none" id="checklistDcausa">
+                            <label for="txtCausasDI">Causas</label>
+                            <input type="text" class="form-control borrar" id="txtCausasDI">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmpresa">En la actualidad ocupa usted alguna de estas funciones</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Pastor" name="Pastor" onclick='validar3(formulario3.Pastor,1)'>Pastor</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Anciano" name="Anciano" onclick='validar3(formulario3.Anciano,1)'>Anciano</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Diacono" name="Diacono" onclick='validar3(formulario3.Diacono,1)'>Diacono</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Misionero" name="Misionero" onclick='validar3(formulario3.Misionero,1)'>Misionero</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Lider Escuela Dominical" name="LiderE" onclick='validar3(formulario3.LiderE,1)'>Lider Escuela Dominical</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Lider Minist. de Jóvenes" name="LidermJ" onclick='validar3(formulario3.LidermJ,1)'>Lider Minist. de Jóvenes</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Lider Minist. de Caballeros" name="LidermC" onclick='validar3(formulario3.LidermC,1)'>Lider Minist. de Caballeros</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Lider Minist. de Damas" name="LidermD" onclick='validar3(formulario3.LidermD,1)'>Lider Minist. de Damas</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Lider Minist. de Niños" name="LidermNN" onclick='validar3(formulario3.LidermNN,1)'>Lider Minist. de Niños</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Lider Minist. de matrimonios" name="LidermDm" onclick='validar3(formulario3.LidermDm,1)'>Lider Minist. de matrimonios</label>
+                            <br />
+                            <label><input type="checkbox" id="FuncionesOcu" value="Lider de grupo pequeño(Célula)" name="LiderGp" onclick='validar3(formulario3.LiderGp,1)'>Lider de grupo pequeño(Célula)</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtMinisteriosS">¿Cuáles son los ministerios en los que ha servido?</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtMinisteriosS">
+                        </div>
+                        <div class="form-group">
+                            <label for="mayorFruto">¿En cuál de estos ministerios considera que tuvo mayor fruto?¿Por qué?</label>
+                            <input type="text" class="form-control borrar obligatorio" id="mayorFruto">
+                        </div>
+                        <div class="form-group">
+                            <label for="DonesTalento">¿Considerando sus dones y talentos, ¿a qué ministerios cree usted que Dios lo(a) está llamando?</label>
+                            <input type="text" class="form-control borrar obligatorio" id="DonesTalento">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtMetaVida">¿Qué metas tienes para su vida?</label>
+                            <input type="text" class="form-control borrar obligatorio" id="txtMetaVida">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtAutoridades">¿Cuenta con el respaldo de sus autoridades eclesiásticas para realizar estos estudios?</label>
+                            <br />
+                            <label><input type="checkbox" class="estudiosEcle" id="SA" name="SS" value="Si" onclick='validar5(formulario3.SS, 1)'>Si</label>
+                            <label><input type="checkbox" class="estudiosEcle" id="SA" name="NN" value="Si" onclick="validar5(formulario3.NN, 1)">No</label>
+                        </div>
+                    </form>
+                </div>
+
+
+                @*Formulario para datos Academicos*@
+                <div id="academico">
+                    <h3>Datos Academicos</h3>
+                    <form id="formularioU" name="formularioU">
+                        <div class="form-group">
+                            <label for="txtEstudio">Nivel de estudio</label>
+                            <select id="txtEstudio" class="form-control">
+                                <option value="">--selecciona--</option>
+                                <option value="Primaria">Primaria</option>
+                                <option value="Secundaria">Secundaria</option>
+                                <option value="Tecnico">Tecnico</option>
+                                <option value="Grado">Grado</option>
+                                <option value="Postgrado">Postgrado</option>
+                                <option value="Maestria">Maestria</option>
+                                <option value="Doctorado">Doctorado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmpresa">¿Alguna vez ha sido expulsado o suspendido de alguna institucion</label>
+                            <br />
+                            <label><input type="checkbox" class="siRazonI" value="Si" id="siRazon" name="siRazon" onclick="validar6(formularioU.siRazon, 1);showContent2()">Si</label>
+                            <label><input type="checkbox" class="siRazonI" value="No" id="noRazon" name="noRazon" onclick="validar6(formularioU.noRazon, 1)">No</label>
+                        </div>
+                        <div class="form-group" style="display:none;" id="razon">
+                            <label for="txtrazonEx">¿Por qué razón?</label>
+                            <input type="text" class="form-control borrar" id="txtrazonEx" placeholder="Ingrese la razon por la que fue expulsado">
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <button class="btn btn-info" id="atras" onclick="cambiaVisibilidad2()">Atras</button>
+                    <button class="btn btn-info" id="Siguiente" onclick="cambiaVisibilidad()">Siguiente</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="Agregar()" class="btn btn-success">Aceptar</button>
+                <button id="btnCancelar" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/Datos.js"></script>
+<script src="~/DataTable/datatables.min.js"></script>
+<script src="~/DataTable/Buttons-1.6.5/js/dataTables.buttons.min.js"></script>
+<script src="~/DataTable/JSZip-2.5.0/jszip.min.js"></script>
+<script src="~/DataTable/pdfmake-0.1.36/pdfmake.min.js"></script>
+<script src="~/DataTable/pdfmake-0.1.36/vfs_fonts.js"></script>
+<script src="~/DataTable/Buttons-1.6.5/js/buttons.html5.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

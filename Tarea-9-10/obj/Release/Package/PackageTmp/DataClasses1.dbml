@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Datos_Feligrense" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-D9DC04N;Initial Catalog=Datos_Feligrense;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FeligrenseDbContext" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Paises" Member="Paises">
+    <Type Name="Paises">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DATOS" Member="DATOS">
+    <Type Name="DATOS">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Sexo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Pais_Residencia_Actual" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Ciudad_Residencia_Actual" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Correo_electronico" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Tipo_documento" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Documento_identidad" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Estado_Civil" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nombre_Pareja" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hijos" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="N_Hijos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Profesion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ocupacion_Actual" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nombre_Empresa" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Telefono_Empresa" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Fecha_Conversion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Fecha_Bautismo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Fecha_Aceptado" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Denominacion_Pertenece" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Otra_denominacion" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Nombre_Iglesia" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Congregacion_Anterior" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Nombre_Pastor" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Diciplinado_algunaVez" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="N_veces" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Causas" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Ocupacion_en_la_iglesia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Ministerio_Servido" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Ministerio_Fruto" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Ministerio_Dios" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Meta_vida" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Eclesiastico_estudio" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Nivel_estudio" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Expulsado_Ins" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Razon" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="DBHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AspNetUsers" Member="AspNetUsers">
+    <Type Name="AspNetUsers">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="EmailConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SecurityStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumberConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TwoFactorEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockoutEndDateUtc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LockoutEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccessFailedCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

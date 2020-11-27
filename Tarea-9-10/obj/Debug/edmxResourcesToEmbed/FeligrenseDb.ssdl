@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Datos_FeligrenseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DATOS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="70" />
+    <Property Name="Apellido" Type="varchar" MaxLength="70" />
+    <Property Name="Sexo" Type="varchar" MaxLength="10" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Pais" Type="varchar" MaxLength="60" />
+    <Property Name="Ciudad" Type="varchar" MaxLength="60" />
+    <Property Name="Pais_Residencia_Actual" Type="varchar" MaxLength="60" />
+    <Property Name="Ciudad_Residencia_Actual" Type="varchar" MaxLength="60" />
+    <Property Name="Direccion" Type="varchar" MaxLength="200" />
+    <Property Name="Telefono" Type="varchar" MaxLength="15" />
+    <Property Name="Celular" Type="varchar" MaxLength="20" />
+    <Property Name="Correo_electronico" Type="varchar" MaxLength="60" />
+    <Property Name="Tipo_documento" Type="varchar" MaxLength="30" />
+    <Property Name="Documento_identidad" Type="varchar" MaxLength="30" />
+    <Property Name="Estado_Civil" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre_Pareja" Type="varchar" MaxLength="50" />
+    <Property Name="Hijos" Type="varchar" MaxLength="5" />
+    <Property Name="N_Hijos" Type="int" />
+    <Property Name="Profesion" Type="varchar" MaxLength="50" />
+    <Property Name="Ocupacion_Actual" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre_Empresa" Type="varchar" MaxLength="70" />
+    <Property Name="Telefono_Empresa" Type="varchar" MaxLength="15" />
+    <Property Name="Fecha_Conversion" Type="datetime" />
+    <Property Name="Fecha_Bautismo" Type="datetime" />
+    <Property Name="Fecha_Aceptado" Type="datetime" />
+    <Property Name="Denominacion_Pertenece" Type="varchar" MaxLength="50" />
+    <Property Name="Otra_denominacion" Type="varchar" MaxLength="60" />
+    <Property Name="Nombre_Iglesia" Type="varchar" MaxLength="60" />
+    <Property Name="Congregacion_Anterior" Type="varchar" MaxLength="70" />
+    <Property Name="Nombre_Pastor" Type="varchar" MaxLength="60" />
+    <Property Name="Diciplinado_algunaVez" Type="varchar" MaxLength="10" />
+    <Property Name="N_veces" Type="int" />
+    <Property Name="Causas" Type="varchar" MaxLength="70" />
+    <Property Name="Ocupacion_en_la_iglesia" Type="varchar" MaxLength="50" />
+    <Property Name="Ministerio_Servido" Type="varchar" MaxLength="150" />
+    <Property Name="Ministerio_Fruto" Type="varchar" MaxLength="150" />
+    <Property Name="Ministerio_Dios" Type="varchar" MaxLength="150" />
+    <Property Name="Meta_vida" Type="varchar" MaxLength="150" />
+    <Property Name="Eclesiastico_estudio" Type="varchar" MaxLength="10" />
+    <Property Name="Nivel_estudio" Type="varchar" MaxLength="40" />
+    <Property Name="Expulsado_Ins" Type="varchar" MaxLength="10" />
+    <Property Name="Razon" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="70" />
+  </EntityType>
+  <EntityContainer Name="Datos_FeligrenseModelStoreContainer">
+    <EntitySet Name="DATOS" EntityType="Self.DATOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

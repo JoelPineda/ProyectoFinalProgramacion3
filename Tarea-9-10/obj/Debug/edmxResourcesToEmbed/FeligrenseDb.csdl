@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Datos_FeligrenseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DATOS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Sexo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="Pais" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Pais_Residencia_Actual" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad_Residencia_Actual" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Correo_electronico" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo_documento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Documento_identidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Estado_Civil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Pareja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hijos" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="N_Hijos" Type="Int32" />
+    <Property Name="Profesion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ocupacion_Actual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Empresa" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono_Empresa" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Conversion" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Bautismo" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_Aceptado" Type="DateTime" Precision="3" />
+    <Property Name="Denominacion_Pertenece" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Otra_denominacion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Iglesia" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Congregacion_Anterior" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre_Pastor" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Diciplinado_algunaVez" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="N_veces" Type="Int32" />
+    <Property Name="Causas" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Ocupacion_en_la_iglesia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ministerio_Servido" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Ministerio_Fruto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Ministerio_Dios" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Meta_vida" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Eclesiastico_estudio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nivel_estudio" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Expulsado_Ins" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Razon" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Datos_FeligrenseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DATOS" EntityType="Self.DATOS" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" />
+  </EntityContainer>
+</Schema>
